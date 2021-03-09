@@ -1,10 +1,20 @@
 {
   "name": "@rutynka/helper-progress",
+  "author": "ru7ynk4",
+  "description": "Svelte super simple heatmap progress calendar based on Local Storage",
   "version": "0.0.1",
+  "keywords": [
+    "svelte",
+    "progress",
+    "calendar",
+    "local storage",
+    "heatmap"
+  ],
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public"
+    "start": "sirv public",
+    "test": "echo \"No test specified\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -16,11 +26,9 @@
     "rollup-plugin-terser": "^7.0.0",
     "svelte": "^3.0.0"
   },
-  "dependencies": {
-    "sirv-cli": "^1.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/rutynka/helper-progress-calendar"
-  }
+  },
+  "license": "MIT"
 }

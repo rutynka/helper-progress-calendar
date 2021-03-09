@@ -21,7 +21,7 @@
 
 ---
 
-# rutynka app helper
+# Rutynka app helper
 
 This is a svelte heatmap calendar helper for [Rutynka](https://rutynka.io) apps.
 
