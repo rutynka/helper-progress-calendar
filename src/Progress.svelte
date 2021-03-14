@@ -23,7 +23,7 @@
 		show = true;
 	};
 
-	console.log('progress helper loaded v0.0.2')
+	console.log('progress helper loaded v0.0.3')
 
 	function set_default(ev) {
 		localstorage_key = ev.collectionName ? ev.collectionName : window.location.href
@@ -136,10 +136,11 @@
 
 <prgs-calendar class="prgs">
 		{#if show}
-			<div id="cal"></div>
-			{#each calendar as row }
+			<div id="cal" class="days">
+				{#each calendar as row }
 				<div data-cal={row.search_date} title="{row.title}" class="{row.search_date === css_today ? 'today ' : ''}sq big sqc-{row.val}"></div>
-			{/each}
+				{/each}
+			</div>
 			<div class="legend prgs">
 				<span>Less</span>
 				<div class="sq tiny sqc-0"></div>
@@ -164,29 +165,36 @@
 		margin: -4px 4px;
 	}
 	.prgs {
-		display: flex;
-		flex-direction: row;
 		position:fixed;
-		bottom: 20px;
 		width: 100%;
-		justify-content: center;
+		background-color:hsla(0,0%,0%,0.7);
+		bottom:35px;
+	}
+	.prgs .days {
 		flex-wrap: wrap;
+		justify-content: center;
+		flex-direction: row;
+		display: flex;
+		padding:15px;
 	}
 	.prgs.legend {
-		bottom: 5px;
+		bottom: 13px;
+		display: flex;
 		justify-content: flex-end;
+		color:white;
+		padding:5px 0;
 	}
 	.sq.sqc-0 {
 		background-color: hsla(var(--green-hue), 5%, 74%,1);
-		border:1px solid hsla(var(--green-hue),  5%, 64%,1);
+		border:1px solid hsla(var(--green-hue), 25%, 14%,1);
 	}
 	.sq.sqc-1 {
 		background-color: hsla(var(--green-hue), 75%, 74%,1);
-		border:1px solid hsla(var(--green-hue), 65%, 54%,1);
+		border:1px solid hsla(var(--green-hue), 25%, 24%,1);
 	}
 	.sq.sqc-2 {
 		background-color: hsla(var(--green-hue), 65%, 64%,1);
-		border:1px solid hsla(var(--green-hue), 55%, 54%,1);
+		border:1px solid hsla(var(--green-hue), 35%, 34%,1);
 	}
 	.sq.sqc-3 {
 		background-color: hsla(var(--green-hue), 55%, 54%,1);
@@ -194,15 +202,15 @@
 	}
 	.sq.sqc-4 {
 		background-color: hsla(var(--green-hue), 45%, 44%,1);
-		border:1px solid hsla(var(--green-hue), 35%, 34%,1);
+		border:1px solid hsla(var(--green-hue), 55%, 54%,1);
 	}
 	.sq.sqc-5 {
 		background-color: hsla(var(--green-hue), 35%, 34%,1);
-		border:1px solid hsla(var(--green-hue), 25%, 24%,1);
+		border:1px solid hsla(var(--green-hue), 65%, 64%,1);
 	}
 	.sq.sqc-6 {
 		background-color: hsla(var(--green-hue), 35%, 24%,1);
-		border:1px solid hsla(var(--green-hue), 25%, 14%,1);
+		border:1px solid hsla(var(--green-hue),  5%, 74%,1);
 	}
 	.sq {
 		height: 30px;
@@ -221,7 +229,7 @@
 		border-radius: 1px;
 	}
 	@media only screen and (max-width: 480px) {
-		.legend {display:none;}
+		.prgs .legend {display:none;}
 		.sq {
 			margin: 2px 2px;
 			height: 15px;
