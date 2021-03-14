@@ -15,7 +15,7 @@
 	export const store_progress = function(ev) {
 		ev = ev || {}
 		set_default(ev)
-		if (ev.storeDB) {
+		if (ev.store_db) {
 			send_progress(ev)
 		}
 		add_to_local_storage(ev)
@@ -23,7 +23,7 @@
 		show = true;
 	};
 
-	console.log('progress helper loaded v0.0.1')
+	console.log('progress helper loaded v0.0.2')
 
 	function set_default(ev) {
 		localstorage_key = ev.collectionName ? ev.collectionName : window.location.href
@@ -166,14 +166,14 @@
 	.prgs {
 		display: flex;
 		flex-direction: row;
-		position:absolute;
+		position:fixed;
 		bottom: 20px;
 		width: 100%;
 		justify-content: center;
 		flex-wrap: wrap;
 	}
 	.prgs.legend {
-		bottom: -5px;
+		bottom: 5px;
 		justify-content: flex-end;
 	}
 	.sq.sqc-0 {
