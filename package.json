@@ -2,7 +2,7 @@
   "name": "@rutynka/helper-progress",
   "author": "ru7ynk4",
   "description": "Svelte super simple heatmap progress calendar based on Local Storage",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "module": "public/build/prgs.js",
   "main": "public/build/prgs.js",
   "files": [
@@ -42,6 +42,6 @@
     "url": "https://github.com/rutynka/helper-progress-calendar"
   },
   "homepage": "https://github.com/rutynka/helper-progress-calendar",
-  "url" : "https://rutynka.io",
+  "url": "https://rutynka.io",
   "license": "MIT"
 }
