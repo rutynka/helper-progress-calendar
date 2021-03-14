@@ -19,7 +19,7 @@ This is a svelte heatmap calendar helper for [Rutynka](https://rutynka.io) apps.
 Clone and install the dependencies...
 
 ```bash
-npx degit rutynka/helper-progress-calendar#main helper-progress-calendar helper-progress-calendar
+npx degit rutynka/helper-progress-calendar#main helper-progress-calendar
 cd helper-progress-calendar
 yarn install
 ```
