@@ -2,7 +2,7 @@
   "name": "@rutynka/helper-progress",
   "author": "ru7ynk4",
   "description": "Svelte super simple heatmap progress calendar based on Local Storage",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "module": "public/build/prgs.js",
   "main": "public/build/prgs.js",
   "files": [
