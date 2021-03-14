@@ -1,21 +1,10 @@
 <h1 align="center">
-	<br>
-	<br>
     <a href="https://rutynka.io">
-	<img width="320" src="public/rutynka_logo_micro.svg" alt="rutynka">
-	<br>
+	<img width="820" src="public/screen_14_days.png" alt="screenshot">
+	</a>
 	<br>
 	<br>
 </h1>
-<h2 align="center">
-	<br>
-	<br>
-    <a href="https://rutynka.io">
-	<img width="820" src="public/screen_14_days.png" alt="screenshot">
-	<br>
-	<br>
-	<br>
-</h2>
 
 *Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
@@ -30,15 +19,15 @@ This is a svelte heatmap calendar helper for [Rutynka](https://rutynka.io) apps.
 Clone and install the dependencies...
 
 ```bash
-npx degit rutynka/helper-progress-calendar
+npx degit rutynka/helper-progress-calendar#main helper-progress-calendar helper-progress-calendar
 cd helper-progress-calendar
-npm install
+yarn install
 ```
 https://betterstack.dev/blog/npm-package-best-practices/
 ...then start [Rollup](https://rollupjs.org):
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
