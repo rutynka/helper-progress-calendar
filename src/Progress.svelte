@@ -23,7 +23,7 @@
 		show = true;
 	};
 
-	console.log('progress helper loaded v0.0.3')
+	console.log('progress helper loaded v0.0.4')
 
 	function set_default(ev) {
 		localstorage_key = ev.collectionName ? ev.collectionName : window.location.href
