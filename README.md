@@ -2,17 +2,19 @@
     <a href="https://rutynka.io">
 	<img width="820" src="public/screen_14_days.png" alt="screenshot">
 	</a>
-	<br>
-	<br>
 </h1>
-
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
-
----
 
 # Rutynka app helper
 
-This is a svelte heatmap calendar helper for [Rutynka](https://rutynka.io) apps.
+This is a svelte heatmap calendar - routine helper for [Rutynka](https://rutynka.io) apps.
+
+### Stand-alone live demo on [Vercel](https://vercel.com)
+
+https://helper-progress-calendar.vercel.app/ 
+
+`prgs.store_progress()` in Web Inspector
+
+---
 
 ## Get started
 
@@ -35,6 +37,41 @@ Navigate to [localhost:5000](http://localhost:5000). You should see your app run
 By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
 
 If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
+## Import as `Svelte Component` with bindings `this`
+
+<img width="820" src="public/screen_14_days_hello.png" alt="screenshot">
+
+
+```bash
+npx degit sveltejs/template my-svelte-project
+cd my-svelte-project
+npm install
+yarn install rutynka/helper-progress-calendar
+yarn dev 
+```
+
+```js
+//my-svelte-project/src/App.svelte
+<script>
+	import Progress from '@rutynka/helper-progress/src/Progress.svelte'
+	export let name;
+
+	let progress;
+
+	function handleClick() {
+		console.log('click', progress.store_progress())
+	}
+
+</script>
+
+<main>
+	<h1>Hello {name}!</h1>
+	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<button on:click={handleClick}>Heat up</button>
+</main>
+<Progress bind:this={progress}/>
+```
+
 
 ## Building and running in production mode
 
