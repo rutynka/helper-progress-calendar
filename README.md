@@ -8,7 +8,7 @@
 
 This is a svelte heatmap calendar - routine helper for [Rutynka](https://rutynka.io) apps.
 
-### Stand-alone live demo on [Vercel](https://vercel.com)
+## Stand-alone live demo on [Vercel](https://vercel.com)
 
 https://helper-progress-calendar.vercel.app/ 
 
@@ -25,6 +25,7 @@ npx degit rutynka/helper-progress-calendar#main helper-progress-calendar
 cd helper-progress-calendar
 yarn install
 ```
+
 https://betterstack.dev/blog/npm-package-best-practices/
 ...then start [Rollup](https://rollupjs.org):
 
@@ -40,7 +41,6 @@ If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommen
 ## Import as `Svelte Component` with bindings `this`
 
 <img width="820" src="public/screen_14_days_hello.png" alt="screenshot">
-
 
 ```bash
 npx degit sveltejs/template my-svelte-project
@@ -61,7 +61,6 @@ yarn dev
 	function handleClick() {
 		console.log('click', progress.store_progress())
 	}
-
 </script>
 
 <main>
@@ -72,7 +71,6 @@ yarn dev
 <Progress bind:this={progress}/>
 ```
 
-
 ## Building and running in production mode
 
 To create an optimised version of the app:
@@ -82,7 +80,6 @@ npm run build
 ```
 
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
 
 ## Single-page app mode
 

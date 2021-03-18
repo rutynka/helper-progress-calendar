@@ -169,6 +169,7 @@
 		width: 100%;
 		background-color:hsla(0,0%,0%,0.7);
 		bottom:35px;
+		left:0;
 	}
 	.prgs .days {
 		flex-wrap: wrap;
