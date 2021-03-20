@@ -6,7 +6,7 @@
 
 # Rutynka app helper
 
-This is a svelte heatmap calendar - routine helper for [Rutynka](https://rutynka.io) apps.
+This is a simple svelte heatmap calendar based on local storage - routine helper for [Rutynka](https://rutynka.io) apps.
 
 ## Stand-alone live demo on [Vercel](https://vercel.com)
 
