@@ -3,11 +3,13 @@
   "author": "ru7ynk4",
   "description": "Svelte super simple heatmap calendar based on Local Storage",
   "version": "0.0.7",
+  "svelte": "src/index.js",
   "module": "dist/prgs.mjs",
-  "main": "dist/prgs.js",
+  "main": "dist/index.js",
   "unpkg": "dist/prgs.js",
   "files": [
-    "public/build/prgs.js"
+    "src/index.js",
+    "src/Progress.svelte"
   ],
   "keywords": [
     "svelte",

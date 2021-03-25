@@ -45,7 +45,7 @@ If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommen
 ```bash
 npx degit sveltejs/template my-svelte-project
 cd my-svelte-project
-npm install
+yarn install
 yarn install rutynka/helper-progress-calendar
 yarn dev 
 ```
@@ -53,7 +53,7 @@ yarn dev
 ```js
 //my-svelte-project/src/App.svelte
 <script>
-	import Progress from '@rutynka/helper-progress/src/Progress.svelte'
+	import { Progress } from '@rutynka/helper-progress/src/Progress.svelte'
 	export let name;
 
 	let progress;
