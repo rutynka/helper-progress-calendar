@@ -8,9 +8,9 @@
 
 This is a simple svelte heatmap calendar based on local storage - routine helper for [Rutynka](https://rutynka.io) apps.
 
-## Stand-alone live demo on [Vercel](https://vercel.com)
+## Stand-alone live demo on [surge](https://surge.com)
 
-https://helper-progress-calendar.vercel.app/ 
+https://helper-progress-calendar.surge.sh/
 
 `prgs.store_progress()` in Web Inspector
 
