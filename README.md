@@ -91,19 +91,15 @@ If you're building a single-page app (SPA) with multiple routes, sirv needs to b
 "start": "sirv public --single"
 ```
 
-## Using TypeScript
+## Testing with JEST
 
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
-```
-
-Or remove the script via:
+Base on: https://www.roboleary.net/2021/11/18/svelte-app-testing-jest.html
 
 ```bash
-rm scripts/setupTypeScript.js
+yarn test
 ```
+
+
 
 ## Deploying to the web
 
