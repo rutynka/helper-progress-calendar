@@ -7,7 +7,8 @@
 	export let visible_days = 14
 	export let days_before_today = 13
 	export let localstorage_key = window.location.href
-
+	
+	let eventsBestTime = {}
 	let today = new Date()
 	let css_today = search_date_format(today)
 	today.setDate(today.getDate() - days_before_today)
@@ -20,8 +21,7 @@
 			send_progress(ev)
 		}
 		add_to_local_storage(ev)
-		build_calendar_with_visible_days(pack_hits_in_a_day(get_storage()))
-		match_days_with_time(get_storage())
+		merge_hit_days_with_calendar_view(pack_hits_in_a_day(get_storage()))
 		show = true;
 	};
 
@@ -102,32 +102,46 @@
 				continue
 			}
 			let dateSearchFormat = search_date_format(dateFromEvent)
+			let eT = get_best_time(eventsData[i],dateSearchFormat)
 			if (eventByDates[dateSearchFormat] === undefined) {
-				eventByDates[dateSearchFormat] = 1
+				eventByDates[dateSearchFormat] = {hit:1,eT:eT}
 			} else {
-				eventByDates[dateSearchFormat] = eventByDates[dateSearchFormat] < 6 ? eventByDates[dateSearchFormat] + 1 : eventByDates[dateSearchFormat] = 6
+				eventByDates[dateSearchFormat]['hit'] = 
+				eventByDates[dateSearchFormat]['hit'] < 6 ? eventByDates[dateSearchFormat]['hit'] + 1 : eventByDates[dateSearchFormat] = {hit:7}
+				eventByDates[dateSearchFormat]['eT'] = eT
 			}
-			console.log('dT:', dateSearchFormat)
+			// console.log('dT:', dateSearchFormat)
 		}
 		console.log(eventByDates)
 		return eventByDates
 	}
 
-	function match_days_with_time(eventsData) {
-		let eventByTime = {}
-		if (eventsData.length <= 0) {
-			console.log('no events data')
-			return {}
+	function get_best_time(rawEventsData, dateKey) {
+		let bestTime = 0
+		let exerciseTime = parseInt(rawEventsData['exerciseTime'])
+		if (exerciseTime && exerciseTime !== 0) {
+			if (eventsBestTime[dateKey]) {
+				bestTime = eventsBestTime[dateKey] > exerciseTime ? exerciseTime : eventsBestTime[dateKey]
+			} else {
+				bestTime = exerciseTime
+			}
+			eventsBestTime[dateKey] = bestTime;
+		} else {
+			if (eventsBestTime[dateKey]) {
+				bestTime = eventsBestTime[dateKey]
+			}
 		}
-		console.log(eventsData)
-		return eventByTime
+		
+		// console.log(bestTime)
+		return bestTime
 	}
 
-	function build_calendar_with_visible_days(eventsByDate) {
+	function merge_hit_days_with_calendar_view(eventsByDate) {
 		let dateEventsKey = Object.keys(eventsByDate)
 		for (let i = 0; i< calendar.length; i++) {
 			if (dateEventsKey.indexOf(calendar[i].search_date) !== -1) {
-				calendar[i].val = eventsByDate[calendar[i].search_date]
+				calendar[i].val = eventsByDate[calendar[i].search_date]['hit']
+				calendar[i].eT = eventsByDate[calendar[i].search_date]['eT']
 			}
 		}
 	}
@@ -153,8 +167,8 @@
 		<div id="cal" class="days">
 			{#each calendar as row }
 			<div data-cal={row.search_date} title="{row.title}" class="{row.search_date === css_today ? 'today ' : ''}sq big sqc-{row.val}">
-			{#if row.sec && show_time }
-				<span class="sec">{row.sec}</span>
+			{#if row.eT && show_time }
+				<span class="sec">{row.eT}</span>
 			{/if}
 			</div>
 			{/each}
@@ -176,19 +190,17 @@
 <style>
 	:root {
 		--green-hue: 131;
-		--blue-hue: 300;
+		--today: 140;
+		--today-master: 268;
 	}
 	span.sec {
-		top:15px;
+		position:relative;
+		top:10px;
 		display: block;
 		text-align: center;
-		font-size: 0.5rem;
+		font-size: 0.6rem;
 		font-family: monospace;
-		color:black;
-	}
-	span {
-		position: relative;
-		margin: -4px 4px;
+		color:white;
 	}
 	.prgs {
 		position:fixed;
@@ -205,7 +217,7 @@
 		padding:15px;
 	}
 	.prgs.legend {
-		top: -24px;
+		top: -30px;
 		display: flex;
 		justify-content: flex-end;
 		color:white;
@@ -240,6 +252,10 @@
 		background-color: hsla(var(--green-hue), 35%, 24%,1);
 		border:1px solid hsla(var(--green-hue),  5%, 74%,1);
 	}
+	.sq.sqc-7 {
+		background-color: hsla(var(--green-hue), 25%, 14%,1);
+		border:1px solid hsla(var(--today-master),  5%, 84%,1);
+	}
 	.sq {
 		height: 30px;
 		width: 30px;
@@ -248,13 +264,13 @@
 		border-radius: 3px;
 	}
 	.today.sq.big {
-		border:2px solid hsla(var(--blue-hue), 100%, 30%,1);
-		border-radius: 16px;
+		border:3px solid hsla(var(--today), 100%, 30%,1);
+		border-radius: 18px;
 	}
 	.sq.tiny {
 		height: 10px;
 		width: 10px;
-		margin: 0 2px;
+		margin: 2px 2px;
 		border-radius: 1px;
 	}
 	@media only screen and (max-width: 480px) {
