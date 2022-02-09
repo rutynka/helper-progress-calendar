@@ -23,10 +23,10 @@
 		add_to_local_storage(ev)
 		merge_hit_days_with_calendar_view(pack_hits_in_a_day(get_storage()))
 		show = true;
+		return true;
 	};
 
-	console.log('progress helper loaded v0.0.9')
-	// [{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-03"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-04"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-04"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-05"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-05"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-05"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-05"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-05"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-05"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-06"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-06"},{"collectionName":"Samochody-Maserati-binary","dT":"2022-2-06"}]
+	console.log('progress helper loaded v0.1.1')
 
 	function set_default(ev) {
 		localstorage_key = ev.collectionName ? ev.collectionName : window.location.href

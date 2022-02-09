@@ -4,7 +4,7 @@
   "description": "Svelte super simple heatmap calendar based on Local Storage",
   "version": "0.1.0",
   "svelte": "src/index.js",
-  "module": "dist/prgs.mjs",
+  "module": "src/index.mjs",
   "main": "dist/index.js",
   "unpkg": "dist/prgs.js",
   "files": [

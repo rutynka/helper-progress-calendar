@@ -372,7 +372,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (165:1) {#if show}
+// (166:1) {#if show}
 function create_if_block(ctx) {
 	let div0;
 	let t0;
@@ -433,25 +433,25 @@ function create_if_block(ctx) {
 			span1.textContent = "More";
 			attr_dev(div0, "id", "cal");
 			attr_dev(div0, "class", "days svelte-s4yqd6");
-			add_location(div0, file, 165, 2, 5020);
-			add_location(span0, file, 175, 3, 5346);
+			add_location(div0, file, 166, 2, 5035);
+			add_location(span0, file, 176, 3, 5361);
 			attr_dev(div1, "class", "sq tiny sqc-0 svelte-s4yqd6");
-			add_location(div1, file, 176, 3, 5367);
+			add_location(div1, file, 177, 3, 5382);
 			attr_dev(div2, "class", "sq tiny sqc-1 svelte-s4yqd6");
-			add_location(div2, file, 177, 3, 5404);
+			add_location(div2, file, 178, 3, 5419);
 			attr_dev(div3, "class", "sq tiny sqc-2 svelte-s4yqd6");
-			add_location(div3, file, 178, 3, 5441);
+			add_location(div3, file, 179, 3, 5456);
 			attr_dev(div4, "class", "sq tiny sqc-3 svelte-s4yqd6");
-			add_location(div4, file, 179, 3, 5478);
+			add_location(div4, file, 180, 3, 5493);
 			attr_dev(div5, "class", "sq tiny sqc-4 svelte-s4yqd6");
-			add_location(div5, file, 180, 3, 5515);
+			add_location(div5, file, 181, 3, 5530);
 			attr_dev(div6, "class", "sq tiny sqc-5 svelte-s4yqd6");
-			add_location(div6, file, 181, 3, 5552);
+			add_location(div6, file, 182, 3, 5567);
 			attr_dev(div7, "class", "sq tiny sqc-6 svelte-s4yqd6");
-			add_location(div7, file, 182, 3, 5589);
-			add_location(span1, file, 183, 3, 5626);
+			add_location(div7, file, 183, 3, 5604);
+			add_location(span1, file, 184, 3, 5641);
 			attr_dev(div8, "class", "legend prgs svelte-s4yqd6");
-			add_location(div8, file, 174, 2, 5317);
+			add_location(div8, file, 175, 2, 5332);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, div0, anchor);
@@ -517,14 +517,14 @@ function create_if_block(ctx) {
 		block,
 		id: create_if_block.name,
 		type: "if",
-		source: "(165:1) {#if show}",
+		source: "(166:1) {#if show}",
 		ctx
 	});
 
 	return block;
 }
 
-// (169:3) {#if row.eT && show_time }
+// (170:3) {#if row.eT && show_time }
 function create_if_block_1(ctx) {
 	let span;
 	let t_value = /*row*/ ctx[20].eT + "";
@@ -535,7 +535,7 @@ function create_if_block_1(ctx) {
 			span = element("span");
 			t = text(t_value);
 			attr_dev(span, "class", "sec svelte-s4yqd6");
-			add_location(span, file, 169, 4, 5242);
+			add_location(span, file, 170, 4, 5257);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, span, anchor);
@@ -553,14 +553,14 @@ function create_if_block_1(ctx) {
 		block,
 		id: create_if_block_1.name,
 		type: "if",
-		source: "(169:3) {#if row.eT && show_time }",
+		source: "(170:3) {#if row.eT && show_time }",
 		ctx
 	});
 
 	return block;
 }
 
-// (167:3) {#each calendar as row }
+// (168:3) {#each calendar as row }
 function create_each_block(ctx) {
 	let div;
 	let t;
@@ -581,7 +581,7 @@ function create_each_block(ctx) {
 			? 'today '
 			: '') + "sq big sqc-" + /*row*/ ctx[20].val + " svelte-s4yqd6"));
 
-			add_location(div, file, 167, 3, 5079);
+			add_location(div, file, 168, 3, 5094);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, div, anchor);
@@ -626,7 +626,7 @@ function create_each_block(ctx) {
 		block,
 		id: create_each_block.name,
 		type: "each",
-		source: "(167:3) {#each calendar as row }",
+		source: "(168:3) {#each calendar as row }",
 		ctx
 	});
 
@@ -642,7 +642,7 @@ function create_fragment(ctx) {
 			prgs_calendar = element("prgs-calendar");
 			if (if_block) if_block.c();
 			set_custom_element_data(prgs_calendar, "class", "prgs svelte-s4yqd6");
-			add_location(prgs_calendar, file, 163, 0, 4977);
+			add_location(prgs_calendar, file, 164, 0, 4992);
 		},
 		l: function claim(nodes) {
 			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -743,6 +743,7 @@ function instance($$self, $$props, $$invalidate) {
 		add_to_local_storage(ev);
 		merge_hit_days_with_calendar_view(pack_hits_in_a_day(get_storage()));
 		$$invalidate(0, show = true);
+		return true;
 	};
 
 	console.log('progress helper loaded v0.1.1');

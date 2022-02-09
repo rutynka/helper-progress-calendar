@@ -4,15 +4,17 @@
 	</a>
 </h1>
 
-# Rutynka app helper
+# Rutynka calendar helper
+![npm](https://img.shields.io/npm/v/@rutynka/helper-progress?style=plastic)
+![NPM](https://img.shields.io/npm/l/@rutynka/helper-progress?style=plastic)
 
 This is a simple svelte heatmap calendar based on local storage - routine helper for [Rutynka](https://rutynka.io) apps.
 
-## Stand-alone live demo on [surge](https://surge.com)
+## Stand-alone live demo on [surge](my-svelte-rutynka-progress-calendar.surge.sh)
+## Stand-alone live demo on [vercel](https://my-svelte-rutynka-progress-calendar.vercel.app)
 
-https://helper-progress-calendar.surge.sh/
 
-`prgs.store_progress()` in Web Inspector
+`prgs.store_progress({"exerciseTime":"13","dT":new Date()})` in Web Inspector
 
 ---
 
@@ -46,20 +48,20 @@ If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommen
 npx degit sveltejs/template my-svelte-project
 cd my-svelte-project
 yarn install
-yarn install rutynka/helper-progress-calendar
+yarn add rutynka/helper-progress-calendar
 yarn dev 
 ```
 
 ```js
 //my-svelte-project/src/App.svelte
 <script>
-	import { Progress } from '@rutynka/helper-progress/src/Progress.svelte'
+	import Progress from '@rutynka/helper-progress'
 	export let name;
 
 	let progress;
 
 	function handleClick() {
-		console.log('click', progress.store_progress())
+		console.log('click', progress.store_progress({"exerciseTime":69,"dT":new Date()}))
 	}
 </script>
 
@@ -69,6 +71,30 @@ yarn dev
 	<button on:click={handleClick}>Heat up</button>
 </main>
 <Progress bind:this={progress}/>
+
+<style>
+	button {background-color:hsla(100, 80%, 60%,0.9)}
+	main {
+		text-align: center;
+		padding: 1em;
+		max-width: 240px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		color: #ff3e00;
+		text-transform: uppercase;
+		font-size: 4em;
+		font-weight: 100;
+	}
+
+	@media (min-width: 640px) {
+		main {
+			max-width: none;
+		}
+	}
+</style>
+
 ```
 
 ## Building and running in production mode
@@ -91,16 +117,6 @@ If you're building a single-page app (SPA) with multiple routes, sirv needs to b
 "start": "sirv public --single"
 ```
 
-## Testing with JEST
-
-Base on: https://www.roboleary.net/2021/11/18/svelte-app-testing-jest.html
-
-```bash
-yarn test
-```
-
-
-
 ## Deploying to the web
 
 ### With [Vercel](https://vercel.com)
@@ -115,7 +131,8 @@ Then, from within your project folder:
 
 ```bash
 cd public
-vercel deploy --name my-project
+vercel 
+vercel deploy my-project
 ```
 
 ### With [surge](https://surge.sh/)
@@ -126,9 +143,9 @@ Install `surge` if you haven't already:
 npm install -g surge
 ```
 
-Then, from within your project folder:
+Then, from within your project public folder:
 
 ```bash
 npm run build
-surge public my-project.surge.sh
+surge 
 ```
