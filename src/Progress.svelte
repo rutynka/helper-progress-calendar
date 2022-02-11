@@ -214,16 +214,17 @@
 		justify-content: center;
 		flex-direction: row;
 		display: flex;
-		padding:15px;
+		padding:15px 0 0 0;
 	}
 	.prgs.legend {
-		top: -30px;
 		display: flex;
 		justify-content: flex-end;
 		color:white;
 		background-color: transparent;
 		position: relative;
+		top:-15px;
 	}
+	.days .sq:hover {border:1px solid hsla(var(--green-hue), 95%, 94%,1);}
 	.sq.sqc-0 {
 		background-color: hsla(var(--green-hue), 5%, 74%,1);
 		border:1px solid hsla(var(--green-hue), 25%, 14%,1);
@@ -280,10 +281,12 @@
 			height: 15px;
 			width: 15px;
 		}
+		.today.sq.big {
+			border: 1px solid hsla(var(--today), 100%, 30%,1);
+		}
 		span.sec {
 			font-size: 0.4rem;
-			right: 3px;
-			top:8px;
+			top:4px;
 		}
 	}
 </style>
